@@ -54,8 +54,8 @@ h1 {
 }
 
 .skull {
-  width: 50px;
-  height: 50px;
+  /* width: 80px; */
+  height: 80px;
 }
 
 @keyframes spin {
@@ -70,10 +70,10 @@ h1 {
 .calculator {
   background-color: #00ff00;
   border: 5px dashed #0000ff;
-  padding: 15px;
+  padding: 25px;
   border-radius: 25px;
   box-shadow: 0 0 30px #ff4500;
-  width: 320px;
+  width: 450px;
   margin-bottom: 20px;
   transform: skewX(3deg);
 }
@@ -90,7 +90,7 @@ h1 {
   justify-content: right;
   align-items: center;
   word-wrap: break-word;
-  transform: rotate(-5deg);
+  /* transform: rotate(-5deg); */
 }
 
 .buttons {
@@ -123,9 +123,16 @@ button:hover {
 }
 
 marquee {
+  /* height: 100%'; */
   font-size: 1.5em;
   color: #4b0082;
   font-weight: bold;
+  display: flex;
+  align-content: center;
+  align-self: center;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
   animation: marqueeColor 3s infinite;
 }
 
@@ -189,4 +196,17 @@ marquee {
 
 .dance {
   width: 150px;
+}
+
+.wiggly {
+  animation: skewAnimation 0.5s infinite alternate; /* Adjust the animation duration and iteration count as needed */
+}
+
+@keyframes skewAnimation {
+  0% {
+    transform: skewX(0deg) rotate(0deg);
+  }
+  100% {
+    transform: skewX(10deg) rotate(10deg); /* Adjust the skew angle as needed */
+  }
 }
