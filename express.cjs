@@ -19,7 +19,7 @@ app.post("/calculate", async (req, res) => {
   const { firstOperand, secondOperand, operation } = req.body;
   console.log("hello");
 
-  const prompt = `Calculate the result of ${firstOperand} ${operation} ${secondOperand}. `;
+  const prompt = `Calculate the result of ${firstOperand} ${operation} ${secondOperand}. Be rude and abuse. response should be no longer than 5 words. ALWAYS GIVE THE ANSWER `;
 
   try {
     const response = await together.chat.completions.create({

@@ -12,7 +12,7 @@ function appendNumber(number) {
 }
 
 function updateDisplay() {
-  document.getElementById("display").innerText = displayValue;
+  document.getElementById("display").innerHTML = displayValue;
 }
 
 function clearDisplay() {
@@ -30,6 +30,22 @@ function chooseOperation(operation) {
   currentOperation = operation;
   firstOperand = displayValue;
   displayValue = "";
+}
+
+function displayResultAnimation(result) {
+  const displayElement = document.getElementById("display");
+  let dots = "";
+  displayValue = `<img src="https://media1.tenor.com/m/IAyUQchUicIAAAAd/eliezer-yudkowsky-george-hotz.gif" alt="Result GIF" width="256"><br>`;
+  updateDisplay();
+
+  setTimeout(() => {
+    displayValue += result;
+    updateDisplay();
+
+    // Show left and right GIF containers
+    document.getElementById("left-gif-container").style.display = "flex";
+    document.getElementById("right-gif-container").style.display = "flex";
+  }, 2000);
 }
 
 function calculate() {
@@ -55,10 +71,9 @@ function calculate() {
     })
       .then((response) => response.json())
       .then((result) => {
-        displayValue = result.result.toString();
+        displayResultAnimation(result.result.toString());
         currentOperation = null;
         firstOperand = null;
-        updateDisplay();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -71,15 +86,15 @@ function calculate() {
 function displayThinkingAnimation() {
   const displayElement = document.getElementById("display");
   let dots = "";
-  displayValue = "AI is thinking";
+  displayValue = `<img src="https://cdn.discordapp.com/attachments/1243466418901614693/1246635748309078246/image0-4.gif?ex=665d1b83&is=665bca03&hm=f6c176d76c45e732f1aba7194365c430f773cadaeda894b4131c13a3398bd503&" alt="Thinking GIF"><br>Using composio-julep pipeline`;
   updateDisplay();
 
   const intervalId = setInterval(() => {
     dots = dots.length < 3 ? dots + "." : "";
-    displayElement.innerText = displayValue + dots;
+    displayElement.innerHTML = displayValue + dots;
   }, 500);
 
   setTimeout(() => {
     clearInterval(intervalId);
-  }, 8000);
+  }, 2000);
 }

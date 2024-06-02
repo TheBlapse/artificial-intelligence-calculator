@@ -33,7 +33,7 @@ body {
   justify-content: space-around;
   width: 100%;
   background-color: #ff69b4;
-  transform: rotate(5deg);
+  /* transform: rotate(5deg); */
 }
 
 h1 {
@@ -56,7 +56,6 @@ h1 {
 .skull {
   width: 50px;
   height: 50px;
-  animation: spin 4s infinite linear;
 }
 
 @keyframes spin {
@@ -76,7 +75,7 @@ h1 {
   box-shadow: 0 0 30px #ff4500;
   width: 320px;
   margin-bottom: 20px;
-  transform: skewX(10deg);
+  transform: skewX(3deg);
 }
 
 #display {
@@ -140,12 +139,12 @@ marquee {
   }
 }
 
-img {
+/* img {
   margin-top: 15px;
   width: 120px;
   height: auto;
   transform: rotate(-5deg);
-}
+} */
 
 #gif-container {
   display: none;
@@ -165,4 +164,29 @@ img {
 
 .hidden {
   display: none;
+}
+#left-gif-container,
+#right-gif-container {
+  display: none;
+  align-items: center;
+}
+
+#left-gif-container img,
+#right-gif-container img {
+  width: 250px;
+  height: auto;
+}
+
+.flex {
+  width: screen;
+  gap: 50px;
+  align-content: center;
+  align-self: center;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.dance {
+  width: 150px;
 }
