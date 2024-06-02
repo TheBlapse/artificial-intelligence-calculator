@@ -4,7 +4,7 @@ html {
 
 body {
   font-family: "Comic Neue";
-  background: linear-gradient(to bottom, #ff7f50, #ff1493);
+  background: linear-gradient(to bottom, #a8e61d, #fff200);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,12 +12,12 @@ body {
   height: 100vh;
   margin: 0;
   text-align: center;
-  animation: rotateBackground 10s infinite linear;
+  animation: rotateBackground 1s infinite linear;
 }
 
 @keyframes rotateBackground {
   0% {
-    background: linear-gradient(to bottom, #ff7f50, #ff1493);
+    background: linear-gradient(to bottom, #a8e61d, #fff200);
   }
   50% {
     background: linear-gradient(to bottom, #ff1493, #ff7f50);
@@ -75,6 +75,7 @@ h1 {
   box-shadow: 0 0 30px #ff4500;
   width: 450px;
   margin-bottom: 20px;
+  margin-top: 20px;
   transform: skewX(3deg);
 }
 
@@ -117,13 +118,12 @@ button:hover {
 }
 
 .footer {
-  margin-top: 25px;
   border-top: 5px double #ff6347;
   padding-top: 15px;
 }
 
 marquee {
-  /* height: 100%'; */
+  width: 100%;
   font-size: 1.5em;
   color: #4b0082;
   font-weight: bold;
@@ -204,9 +204,68 @@ marquee {
 
 @keyframes skewAnimation {
   0% {
-    transform: skewX(0deg) rotate(0deg);
+    transform: skewX(-10deg) rotate(0deg);
   }
   100% {
-    transform: skewX(10deg) rotate(10deg); /* Adjust the skew angle as needed */
+    transform: skewX(0deg) rotate(-5deg); /* Adjust the skew angle as needed */
   }
+}
+
+.flex-goat {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  align-items: center;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  /* position: relative; */
+}
+
+.goat {
+  width: 150px;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.flex-goat .middle {
+  animation: appear 4s ease infinite; /* Adjust the duration and iteration count */
+}
+
+.flex-goat .left {
+  animation: moveLeft 4s ease infinite; /* Adjust the duration and iteration count */
+}
+
+.flex-goat .right {
+  animation: moveRight 4s ease infinite; /* Adjust the duration and iteration count */
 }
