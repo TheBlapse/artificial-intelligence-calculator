@@ -1,5 +1,7 @@
 const Together = require("together-ai");
 const express = require("express");
+const cors = require("cors");
+
 const axios = require("axios");
 const app = express();
 const port = 3000;
@@ -7,15 +9,17 @@ const TOGETHER_AI_KEY =
   "7beae622879151adbb61fa872fcd47d6c0f3c1f88e7237e214d0ef4647f1b186";
 
 app.use(express.json());
+app.use(cors());
 
 const together = new Together({
-  apiKey: "TOGETHER_API_KEY",
+  apiKey: TOGETHER_AI_KEY,
 });
 
 app.post("/calculate", async (req, res) => {
   const { firstOperand, secondOperand, operation } = req.body;
+  console.log("hello");
 
-  const prompt = `Calculate the result of ${firstOperand} ${operation} ${secondOperand}.`;
+  const prompt = `Calculate the result of ${firstOperand} ${operation} ${secondOperand}. `;
 
   try {
     const response = await together.chat.completions.create({

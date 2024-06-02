@@ -43,25 +43,43 @@ function calculate() {
     operation: currentOperation,
   };
 
-  console.log(data);
+  displayThinkingAnimation();
 
-  fetch("http://localhost:3000/calculate", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      displayValue = result.result.toString();
-      currentOperation = null;
-      firstOperand = null;
-      updateDisplay();
+  setTimeout(() => {
+    fetch("http://localhost:3000/calculate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
-    .catch((error) => {
-      console.error("Error:", error);
-      displayValue = "Error";
-      updateDisplay();
-    });
+      .then((response) => response.json())
+      .then((result) => {
+        displayValue = result.result.toString();
+        currentOperation = null;
+        firstOperand = null;
+        updateDisplay();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        displayValue = "Error";
+        updateDisplay();
+      });
+  }, 2000);
+}
+
+function displayThinkingAnimation() {
+  const displayElement = document.getElementById("display");
+  let dots = "";
+  displayValue = "AI is thinking";
+  updateDisplay();
+
+  const intervalId = setInterval(() => {
+    dots = dots.length < 3 ? dots + "." : "";
+    displayElement.innerText = displayValue + dots;
+  }, 500);
+
+  setTimeout(() => {
+    clearInterval(intervalId);
+  }, 8000);
 }

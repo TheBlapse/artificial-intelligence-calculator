@@ -12,6 +12,19 @@ body {
   height: 100vh;
   margin: 0;
   text-align: center;
+  animation: rotateBackground 10s infinite linear;
+}
+
+@keyframes rotateBackground {
+  0% {
+    background: linear-gradient(to bottom, #ff7f50, #ff1493);
+  }
+  50% {
+    background: linear-gradient(to bottom, #ff1493, #ff7f50);
+  }
+  100% {
+    background: linear-gradient(to bottom, #ff7f50, #ff1493);
+  }
 }
 
 .header {
@@ -20,17 +33,39 @@ body {
   justify-content: space-around;
   width: 100%;
   background-color: #ff69b4;
+  transform: rotate(5deg);
 }
 
 h1 {
   color: #8a2be2;
   font-size: 3em;
   text-shadow: 2px 2px #ffa07a;
+  animation: wiggle 1s infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
 }
 
 .skull {
   width: 50px;
   height: 50px;
+  animation: spin 4s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .calculator {
@@ -41,6 +76,7 @@ h1 {
   box-shadow: 0 0 30px #ff4500;
   width: 320px;
   margin-bottom: 20px;
+  transform: skewX(10deg);
 }
 
 #display {
@@ -55,6 +91,7 @@ h1 {
   justify-content: right;
   align-items: center;
   word-wrap: break-word;
+  transform: rotate(-5deg);
 }
 
 .buttons {
@@ -71,11 +108,13 @@ button {
   font-size: 1.8em;
   cursor: pointer;
   color: #0000cd;
+  transform: rotate(-10deg);
 }
 
 button:hover {
   background-color: #ffff00;
   color: #ff0000;
+  transform: rotate(10deg);
 }
 
 .footer {
@@ -88,10 +127,42 @@ marquee {
   font-size: 1.5em;
   color: #4b0082;
   font-weight: bold;
+  animation: marqueeColor 3s infinite;
+}
+
+@keyframes marqueeColor {
+  0%,
+  100% {
+    color: #4b0082;
+  }
+  50% {
+    color: #8a2be2;
+  }
 }
 
 img {
   margin-top: 15px;
   width: 120px;
   height: auto;
+  transform: rotate(-5deg);
+}
+
+#gif-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#thinking-gif {
+  width: 200px;
+  height: auto;
+}
+
+#thinking-texts {
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
 }
