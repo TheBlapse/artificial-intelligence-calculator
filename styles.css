@@ -133,7 +133,7 @@ marquee {
   display: flex;
   vertical-align: middle;
   align-items: center;
-  animation: marqueeColor 3s infinite;
+  animation: marqueeColor 1s infinite;
 }
 
 @keyframes marqueeColor {
@@ -240,21 +240,21 @@ marquee {
 
 @keyframes moveLeft {
   0% {
-    transform: translateX(0);
+    transform: translateX(-100%);
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
   }
 }
 
 @keyframes moveRight {
   0% {
-    transform: translateX(0);
+    transform: translateX(100%);
   }
 
   100% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
 }
 
