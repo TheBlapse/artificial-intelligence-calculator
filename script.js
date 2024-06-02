@@ -32,14 +32,32 @@ function chooseOperation(operation) {
   displayValue = "";
 }
 
+// function displayResultAnimation(result) {
+//   const displayElement = document.getElementById("display");
+//   let dots = "";
+//   eliezerGif = `<img src="https://media1.tenor.com/m/IAyUQchUicIAAAAd/eliezer-yudkowsky-george-hotz.gif" alt="Result GIF" width="256"><br>`;
+//   displayValue = eliezerGif; // Eliezer GIF
+//   updateDisplay();
+
+//   setTimeout(() => {
+//     displayValue -= eliezerGif += result;
+//     updateDisplay();
+
+//     // Show left and right GIF containers
+//     document.getElementById("left-gif-container").style.display = "flex";
+//     document.getElementById("right-gif-container").style.display = "flex";
+//   }, 2000);
+// }
 function displayResultAnimation(result) {
   const displayElement = document.getElementById("display");
   let dots = "";
-  displayValue = `<img src="https://media1.tenor.com/m/IAyUQchUicIAAAAd/eliezer-yudkowsky-george-hotz.gif" alt="Result GIF" width="256"><br>`;
+  const eliezerGif = `<img src="https://media1.tenor.com/m/IAyUQchUicIAAAAd/eliezer-yudkowsky-george-hotz.gif" alt="Result GIF" width="256"><br>`;
+  displayValue = eliezerGif; // Eliezer GIF
   updateDisplay();
 
   setTimeout(() => {
-    displayValue += result;
+    displayValue = "";
+    displayValue += result; // Concatenate result after the Eliezer GIF
     updateDisplay();
 
     // Show left and right GIF containers
@@ -86,7 +104,7 @@ function calculate() {
 function displayThinkingAnimation() {
   const displayElement = document.getElementById("display");
   let dots = "";
-  displayValue = `<img src="https://cdn.discordapp.com/attachments/1243466418901614693/1246635748309078246/image0-4.gif?ex=665d1b83&is=665bca03&hm=f6c176d76c45e732f1aba7194365c430f773cadaeda894b4131c13a3398bd503&" alt="Thinking GIF"><br>Using composio-julep pipeline`;
+  displayValue = `<img src="https://cdn.discordapp.com/attachments/1243466418901614693/1246635748309078246/image0-4.gif?ex=665d1b83&is=665bca03&hm=f6c176d76c45e732f1aba7194365c430f773cadaeda894b4131c13a3398bd503&" width="200px" alt="Thinking GIF"><br>Using composio-julep pipeline`; // composio-julep gif
   updateDisplay();
 
   const intervalId = setInterval(() => {

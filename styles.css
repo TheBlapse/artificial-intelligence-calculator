@@ -37,9 +37,9 @@ body {
 }
 
 h1 {
-  color: #8a2be2;
+  color: #f3e8fd;
   font-size: 3em;
-  text-shadow: 2px 2px #ffa07a;
+  text-shadow: 2px 2px #5ce9ff;
   animation: wiggle 1s infinite;
 }
 
